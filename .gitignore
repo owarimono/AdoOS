@@ -1,0 +1,14 @@
+# Build output
+apk-tools/build/
+iso/*
+!iso/.gitkeep
+
+# Base ISO (369M, redistributable from Alpine mirrors)
+*.iso
+
+# VM test disks
+vm-test/
+
+# Nested upstream checkouts (own git repos; fork + submodule when pushed)
+/aports/
+/apk-tools/
