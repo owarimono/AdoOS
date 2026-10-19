@@ -1,0 +1,8 @@
+NAME="AdoOS"
+PRETTY_NAME="AdoOS 0.1.0 (Alpine 3.24.1 base)"
+ID=adoos
+ID_LIKE=alpine
+VERSION_ID=0.1.0
+VERSION="0.1.0"
+HOME_URL="https://github.com/owarimono/AdoOS"
+BUG_REPORT_URL="https://github.com/owarimono/AdoOS/issues"

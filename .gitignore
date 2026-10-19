@@ -2,6 +2,11 @@
 apk-tools/build/
 iso/*
 !iso/.gitkeep
+!iso/*.sh
+
+# Rootless builder chroot + mkimage caches (recreated by scripts/)
+.builder/
+.mkimage-work/
 
 # Base ISO (369M, redistributable from Alpine mirrors)
 *.iso
