@@ -115,3 +115,16 @@ This one is real, cheap, and upstreamable.
 | glibc prefix package | not started |
 | Localization | `musl-locales` in the ISO package list; no fonts, no input method work yet |
 | NVIDIA | open stack only; nothing AdoOS-specific planned |
+| Serial console | `console=ttyS0,115200` on the kernel cmdline; the live overlay still ships Alpine's commented-out serial getty, so the console stops at the kernel log |
+| Boot test | not yet run on a built AdoOS ISO |
+
+## Known gaps
+
+**`ADOOS_LITE=1` does not yet skip the firmware download.** The override of
+`section_kernels` in `iso/mkimg.adoos.sh` changes the package list passed to
+`update-kernel`, but `update-kernel` adds `linux-firmware` itself
+(`aports`-installed `alpine-conf`, line 279). That pulls 757 MB across 113
+`linux-firmware-*` subpackages. The flag currently only changes the modloop
+*contents*, not the download. Fixing it means resolving `linux-firmware` to an
+empty package (a local repository with a higher-version stub, signed with the
+ISO key) — not done yet.

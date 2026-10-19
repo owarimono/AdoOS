@@ -10,6 +10,9 @@ profile_adoos() {
 	apkovl="genapkovl-adoos.sh"
 	hostname="adoos"
 	apks="$apks musl-locales"
+	# Keep the VGA console and add serial: the ISO boots in a VM/headless box
+	# with `qemu -nographic` and the boot log is capturable.
+	kernel_cmdline="console=tty0 console=ttyS0,115200"
 }
 
 # Brand the volume id (also used by grub's search --label, so keep one source).
