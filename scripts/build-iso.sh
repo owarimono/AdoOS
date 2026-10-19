@@ -12,15 +12,19 @@ ALPINE_BRANCH="v${ALPINE_VER%.*}"
 ARCH="${ARCH:-x86_64}"
 OUTDIR=/adoos/iso
 WORKDIR=/adoos/.mkimage-work
-REPO_MAIN="https://dl-cdn.alpinelinux.org/alpine/$ALPINE_BRANCH/main"
-REPO_COMMUNITY="https://dl-cdn.alpinelinux.org/alpine/$ALPINE_BRANCH/community"
+# Reachable-by-default mirror; overridable for slow links (ADOOS_MIRROR=https://mirrors.aliyun.com/alpine).
+MIRROR="${ADOOS_MIRROR:-https://dl-cdn.alpinelinux.org/alpine}"
+REPO_MAIN="$MIRROR/$ALPINE_BRANCH/main"
+REPO_COMMUNITY="$MIRROR/$ALPINE_BRANCH/community"
 
 # --- outside the chroot: enter it -----------------------------------------
 if [ ! -e /etc/alpine-release ]; then
 	# Pin the image timestamp to this repo's HEAD so rebuilds are reproducible.
 	E="${SOURCE_DATE_EPOCH:-$(git -C "$REPO" log -1 --format=%cd --date=unix 2>/dev/null || date +%s)}"
 	# Passed inline: the chroot runs with a cleared environment (env -i).
-	exec "$REPO/scripts/alpine-chroot.sh" "SOURCE_DATE_EPOCH=$E ALPINE_VER=$ALPINE_VER ARCH=$ARCH /adoos/scripts/build-iso.sh"
+	ENV="SOURCE_DATE_EPOCH=$E ALPINE_VER=$ALPINE_VER ARCH=$ARCH ADOOS_MIRROR=$MIRROR"
+	if [ -n "$ADOOS_LITE" ]; then ENV="$ENV ADOOS_LITE=$ADOOS_LITE"; fi
+	exec "$REPO/scripts/alpine-chroot.sh" "$ENV /adoos/scripts/build-iso.sh"
 fi
 
 # --- inside: Alpine host --------------------------------------------------
@@ -57,8 +61,13 @@ if [ ! -e "$APKROOT" ]; then
 	cp /usr/share/apk/keys/"$ARCH"/* "$APKROOT/etc/apk/keys/"
 	cp "$PACKAGER_PRIVKEY.pub" "$APKROOT/etc/apk/keys/" 2>/dev/null || true
 	apk --arch "$ARCH" --root "$APKROOT" add --initdb
-	printf '%s\n%s\n' "$REPO_MAIN" "$REPO_COMMUNITY" > "$APKROOT/etc/apk/repositories"
 fi
+# Rewritten every run so switching mirrors reuses the download cache (mkimage
+# skips its own APKROOT block entirely once the directory exists).
+printf '%s\n%s\n' "$REPO_MAIN" "$REPO_COMMUNITY" > "$APKROOT/etc/apk/repositories"
+# Same for the chroot itself: apk calls without --root (the tool install below)
+# would otherwise still hit the minirootfs default mirror.
+printf '%s\n%s\n' "$REPO_MAIN" "$REPO_COMMUNITY" > /etc/apk/repositories
 
 # mkimage loads profiles and apkovl scripts from $HOME/.mkimage (mkimage.sh:204).
 mkdir -p /root/.mkimage
