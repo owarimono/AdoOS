@@ -1,8 +1,27 @@
-# AdoOS
+<p align="center">
+  <img src="Ado-logo.png" alt="AdoOS" width="200">
+</p>
 
-Alpine-based Linux distribution. Same musl, same OpenRC, same package format —
-with its own ISO branding, its own package repository, and documented answers
-for the things musl does not do (glibc-only software, non-Latin locales).
+<h1 align="center">AdoOS</h1>
+
+<p align="center">
+  <em>Alpine-based Linux distribution. Same musl, same OpenRC, same package format — with its own identity.</em>
+</p>
+
+<p align="center">
+  <a href="https://alpinelinux.org/"><img src="https://img.shields.io/badge/base-Alpine%203.24.1-0d597f?style=flat-square" alt="Base: Alpine 3.24.1"></a>
+  <img src="https://img.shields.io/badge/libc-musl-2d6a8f?style=flat-square" alt="libc: musl">
+  <img src="https://img.shields.io/badge/init-OpenRC-4a7ba7?style=flat-square" alt="init: OpenRC">
+  <img src="https://img.shields.io/badge/arch-x86__64-555?style=flat-square" alt="arch: x86_64">
+  <img src="https://img.shields.io/badge/reproducible-builds-2ea44f?style=flat-square" alt="Reproducible builds">
+</p>
+
+<br>
+
+AdoOS is an Alpine-based Linux distribution: same musl, same OpenRC, same
+package format — with its own ISO branding, its own package repository, and
+documented answers for the things musl does not do (glibc-only software,
+non-Latin locales).
 
 What this is and is not is written down in [`docs/SCOPE.md`](docs/SCOPE.md).
 Read that before assuming a feature exists.
