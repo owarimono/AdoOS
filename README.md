@@ -10,12 +10,12 @@
 
 <p align="center">
   <a href="https://alpinelinux.org/">
-    <img alt="Base: Alpine 3.24.1" src="https://img.shields.io/badge/Alpine-3.24.1-0D597F?style=for-the-badge&logo=alpinelinux&logoColor=white">
+    <img alt="Base: Alpine 3.24.1" src="https://img.shields.io/badge/base-Alpine_3.24.1-0D597F?style=flat-square&logo=alpinelinux&logoColor=white">
   </a>
-  <img alt="libc: musl" src="https://img.shields.io/badge/libc-musl-2D6A8F?style=for-the-badge">
-  <img alt="init: OpenRC" src="https://img.shields.io/badge/init-OpenRC-4A7BA7?style=for-the-badge">
-  <img alt="arch: x86_64" src="https://img.shields.io/badge/x86__64-555555?style=for-the-badge&logo=linux&logoColor=white">
-  <img alt="Reproducible builds" src="https://img.shields.io/badge/reproducible-2EA44F?style=for-the-badge&logo=git&logoColor=white">
+  <img alt="libc: musl" src="https://img.shields.io/badge/libc-musl-2D6A8F?style=flat-square">
+  <img alt="init: OpenRC" src="https://img.shields.io/badge/init-OpenRC-4A7BA7?style=flat-square">
+  <img alt="arch: x86_64" src="https://img.shields.io/badge/arch-x86__64-555555?style=flat-square&logo=linux&logoColor=white">
+  <img alt="Reproducible builds" src="https://img.shields.io/badge/reproducible_builds-2EA44F?style=flat-square&logo=git&logoColor=white">
 </p>
 
 <br>
