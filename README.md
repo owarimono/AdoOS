@@ -9,13 +9,11 @@
 </p>
 
 <p align="center">
-  <a href="https://alpinelinux.org/">
-    <img alt="Base: Alpine 3.24.1" src="https://img.shields.io/badge/base-Alpine_3.24.1-0D597F?style=flat-square&logo=alpinelinux&logoColor=white">
-  </a>
-  <img alt="libc: musl" src="https://img.shields.io/badge/libc-musl-2D6A8F?style=flat-square">
-  <img alt="init: OpenRC" src="https://img.shields.io/badge/init-OpenRC-4A7BA7?style=flat-square">
-  <img alt="arch: x86_64" src="https://img.shields.io/badge/arch-x86__64-555555?style=flat-square&logo=linux&logoColor=white">
-  <img alt="Reproducible builds" src="https://img.shields.io/badge/reproducible_builds-2EA44F?style=flat-square&logo=git&logoColor=white">
+  <a href="https://alpinelinux.org/"><img alt="Base: Alpine 3.24.1" src="https://img.shields.io/badge/Base-Alpine_3.24.1-0D597F?style=for-the-badge&labelColor=1F2937&logo=alpinelinux&logoColor=white"></a>
+  <img alt="libc: musl" src="https://img.shields.io/badge/libc-musl-1B6E8C?style=for-the-badge&labelColor=1F2937">
+  <img alt="init: OpenRC" src="https://img.shields.io/badge/init-OpenRC-2F80A8?style=for-the-badge&labelColor=1F2937">
+  <img alt="arch: x86_64" src="https://img.shields.io/badge/Arch-x86__64-3B8FB8?style=for-the-badge&labelColor=1F2937&logo=linux&logoColor=white">
+  <img alt="Builds: reproducible" src="https://img.shields.io/badge/Builds-reproducible-2EA44F?style=for-the-badge&labelColor=1F2937&logo=git&logoColor=white">
 </p>
 
 <br>
