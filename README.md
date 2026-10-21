@@ -7,12 +7,11 @@
 **An Alpine derivative where every change is a profile, an overlay file, or a package — never a patched recipe.**
 
 <p align="center">
-  <a href="https://alpinelinux.org/"><img alt="Base: Alpine 3.24.1" src="https://img.shields.io/badge/Base-Alpine_3.24.1-F2F2F2?style=for-the-badge&labelColor=111111&logo=alpinelinux&logoColor=111111"></a>
-  <img alt="libc: musl" src="https://img.shields.io/badge/libc-musl-D6D6D6?style=for-the-badge&labelColor=111111">
-  <img alt="init: OpenRC" src="https://img.shields.io/badge/init-OpenRC-B4B4B4?style=for-the-badge&labelColor=111111">
-  <img alt="arch: x86_64" src="https://img.shields.io/badge/Arch-x86__64-919191?style=for-the-badge&labelColor=111111&logo=linux&logoColor=111111">
-  <img alt="Builder: rootless" src="https://img.shields.io/badge/Builder-rootless-6E6E6E?style=for-the-badge&labelColor=111111">
-  <a href="#status"><img alt="Status: pre-alpha" src="https://img.shields.io/badge/Status-pre--alpha-E3A008?style=for-the-badge&labelColor=111111"></a>
+  <a href="https://alpinelinux.org/"><img alt="Base: Alpine 3.24.1" src="https://img.shields.io/badge/Base-Alpine_3.24.1-0D597F?style=for-the-badge&labelColor=1F2937&logo=alpinelinux&logoColor=white"></a>
+  <img alt="libc: musl" src="https://img.shields.io/badge/libc-musl-1B6E8C?style=for-the-badge&labelColor=1F2937">
+  <img alt="init: OpenRC" src="https://img.shields.io/badge/init-OpenRC-2F80A8?style=for-the-badge&labelColor=1F2937">
+  <img alt="arch: x86_64" src="https://img.shields.io/badge/Arch-x86__64-3B8FB8?style=for-the-badge&labelColor=1F2937&logo=linux&logoColor=white">
+  <img alt="Builder: rootless" src="https://img.shields.io/badge/Builder-rootless-2EA44F?style=for-the-badge&labelColor=1F2937&logo=git&logoColor=white">
 </p>
 
 </div>
