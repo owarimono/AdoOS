@@ -15,9 +15,27 @@ VER="${ALPINE_VER:-3.24.1}"
 URL="https://dl-cdn.alpinelinux.org/alpine/v${VER%.*}/releases/x86_64/alpine-minirootfs-${VER}-x86_64.tar.gz"
 
 if [ ! -x "$ROOT/bin/busybox" ]; then
+	# The tarball is extracted as root-in-userns, so verify it against the
+	# checksum the mirror publishes next to it before handing it to tar.
+	SHA_URL="$URL.sha256"
 	echo "[*] fetching $URL" >&2
+	WANT="$(curl -fsSL "$SHA_URL" | cut -d' ' -f1)"
+	if [ -z "$WANT" ]; then
+		echo "[!] no checksum published at $SHA_URL" >&2
+		exit 1
+	fi
 	mkdir -p "$ROOT"
-	curl -fsSL "$URL" | tar -xz -C "$ROOT"
+	curl -fsSL "$URL" -o "$ROOT.tar.gz"
+	GOT="$(sha256sum "$ROOT.tar.gz" | cut -d' ' -f1)"
+	if [ "$GOT" != "$WANT" ]; then
+		echo "[!] checksum mismatch for $URL" >&2
+		echo "    expected $WANT" >&2
+		echo "    got      $GOT" >&2
+		rm -f "$ROOT.tar.gz"
+		exit 1
+	fi
+	tar -xzf "$ROOT.tar.gz" -C "$ROOT"
+	rm -f "$ROOT.tar.gz"
 fi
 
 CMD="${*:-sh}"

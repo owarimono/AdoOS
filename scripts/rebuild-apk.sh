@@ -15,5 +15,5 @@ meson setup -Dprefix=/usr build
 echo "[*] Building..."
 ninja -C build
 
-echo "[*] Done. Binary at: apk-tools/build/src/apk"
-echo "    Test: apk-tools/build/src/apk --version"
+echo "[*] Done. Binary at: apk-tools/build/src/abo"
+echo "    Test: apk-tools/build/src/abo --version"

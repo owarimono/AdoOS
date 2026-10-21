@@ -16,8 +16,10 @@ profile_adoos() {
 }
 
 # Brand the volume id (also used by grub's search --label, so keep one source).
+# profile_abbrev already says "adoos"; prefixing it again produced
+# "adoos-adoos 241020 x86_64".
 gen_volid() {
-	printf "%s" "adoos-${profile_abbrev:-$PROFILE} ${RELEASE%_rc*} $ARCH" | cut -c1-32
+	printf "%s" "${profile_abbrev:-$PROFILE} ${RELEASE%_rc*} $ARCH" | cut -c1-32
 }
 
 # mkimg.base.sh puts the whole linux-firmware metapackage (~600 MB to download,

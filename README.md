@@ -68,10 +68,11 @@ repo bind-mounted at `/adoos`.
 ```sh
 cd apk-tools
 meson setup -Dprefix=/usr build && ninja -C build
-./build/src/apk --version
+./build/src/abo --version
 ```
 
 Requires meson, ninja and the usual dev libs; on a non-Alpine host
-`uv tool install meson ninja` is enough. The apk test suite is
-`meson test -C build` — it expects `$APK` to point at the built binary, which
+`uv tool install meson ninja` is enough. The binary is `abo`, not `apk` — the
+rebrand renamed the executable (`apk-tools/src/meson.build:188`). The test suite
+is `meson test -C build` — it expects `$APK` to point at the built binary, which
 the meson build sets up.
