@@ -115,7 +115,7 @@ This one is real, cheap, and upstreamable.
 | glibc prefix package | not started |
 | Localization | `musl-locales` in the ISO package list; no fonts, no input method work yet |
 | NVIDIA | open stack only; nothing AdoOS-specific planned |
-| Serial console | `console=ttyS0,115200` on the kernel cmdline; the live overlay still ships Alpine's commented-out serial getty, so the console stops at the kernel log |
+| Serial console | `console=ttyS0,115200` on the kernel cmdline, plus an enabled `ttyS0` getty in `overlay/etc/inittab` |
 | Boot test | not yet run on a built AdoOS ISO |
 
 ## Known gaps
