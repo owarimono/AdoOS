@@ -11,7 +11,7 @@
   <img alt="libc: musl" src="https://img.shields.io/badge/libc-musl-1B6E8C?style=for-the-badge&labelColor=1F2937">
   <img alt="init: OpenRC" src="https://img.shields.io/badge/init-OpenRC-2F80A8?style=for-the-badge&labelColor=1F2937">
   <img alt="arch: x86_64" src="https://img.shields.io/badge/Arch-x86__64-3B8FB8?style=for-the-badge&labelColor=1F2937&logo=linux&logoColor=white">
-  <img alt="Builder: rootless" src="https://img.shields.io/badge/Builder-rootless-2EA44F?style=for-the-badge&labelColor=1F2937&logo=git&logoColor=white">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-2EA44F?style=for-the-badge&labelColor=1F2937"></a>
 </p>
 
 </div>
@@ -50,7 +50,6 @@ One rule drives the build: AdoOS adds layers, it does not fork the base.
   answers for glibc binaries, and neither is wired into the ISO yet.
 - **No package repository.** AdoOS builds no packages of its own.
 - **No installer.** The ISO is a live system.
-- **No license file.** Absent one, the repo is all rights reserved by default.
 
 ## Build
 
@@ -129,7 +128,6 @@ describes the scripts, not a working image.
   Closing it needs an empty higher-version stub package.
 - **The volume ID truncates at 32 characters.** A long `RELEASE` value loses the
   architecture suffix.
-- **No LICENSE file.** Pick one before anyone else builds on this.
 
 ## Roadmap
 
@@ -137,4 +135,9 @@ describes the scripts, not a working image.
 - [ ] Wire Flatpak or distrobox into the live image and document the path
 - [ ] Empty `linux-firmware` stub so `ADOOS_LITE=1` is fast, not just smaller
 - [ ] Decide whether the `abo` rebrand ships as a patch series (SCOPE rule 2)
-- [ ] Add a LICENSE
+
+## License
+
+MIT for everything in this repository — the same license Alpine uses for its own
+tooling (`alpine-conf`). Copied-in upstream components keep theirs: `apk-tools`
+is GPL-2.0, `musl` is MIT. See [LICENSE](LICENSE).
